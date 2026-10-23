@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+---
+
+<Layout
+  title="404: Page Not Found | Word Replace"
+  description="This page could not be found on Word Replace. Return to the free online text replace tool to find and replace text privately in your browser."
+  noindex={true}
+>
+  <Navbar />
+  <main class="error-page">
+    <Breadcrumbs
+      items={[
+        { href: "/", label: "Word Replace" },
+        { href: "/404", label: "404 Not Found" },
+      ]}
+    />
+
+    <section class="error-hero">
+      <div class="error-badge error-badge-404">
+        <span class="badge-dot"></span>
+        <span>Error 404 &bull; Page Not Found</span>
+      </div>
+
+      <div class="error-code-glance">404</div>
+
+      <h1>This page has been edited out.</h1>
+      <p class="error-lead">
+        The address you requested does not match any page on Word Replace. It may
+        have been renamed, moved, or replaced with a newer version.
+      </p>
+
+      <div class="error-terminal" role="region" aria-label="Search error details">
+        <div class="terminal-bar">
+          <span class="term-dot red"></span>
+          <span class="term-dot yellow"></span>
+          <span class="term-dot green"></span>
+          <span class="term-title">word-replace-search.log</span>
+        </div>
+        <div class="terminal-body">
+          <div class="term-row">
+            <span class="term-label">FIND:</span>
+            <span class="term-val" id="notFoundPath">requested path</span>
+          </div>
+          <div class="term-row">
+            <span class="term-label">STATUS:</span>
+            <span class="term-tag term-tag-miss">0 matches found (404)</span>
+          </div>
+          <div class="term-row">
+            <span class="term-label">ACTION:</span>
+            <span class="term-val">Auto-suggest: return to text replace editor</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-actions">
+        <a href="/" class="btn-error-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Back to Word Replace
+        </a>
+        <button
+          type="button"
+          class="btn-error-secondary"
+          onclick="window.history.length > 1 ? window.history.back() : window.location.href='/'"
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Go Back
+        </button>
+      </div>
+    </section>
+
+    <section class="error-quick-section">
+      <h2 class="error-quick-head">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        Helpful destinations
+      </h2>
+      <div class="error-links-grid">
+        <a href="/" class="error-card-link">
+          <span class="card-icon-box icon-box-cyan">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </span>
+          <div class="error-card-link-content">
+            <h3>Word Replace Editor</h3>
+            <p>Paste text, replace words, and run word replace all in your browser.</p>
+          </div>
+        </a>
+
+        <a href="/about" class="error-card-link">
+          <span class="card-icon-box icon-box-purple">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+          </span>
+          <div class="error-card-link-content">
+            <h3>About Word Replace</h3>
+            <p>Learn how our deterministic, client-side editor was designed.</p>
+          </div>
+        </a>
+
+        <a href="/privacy" class="error-card-link">
+          <span class="card-icon-box icon-box-emerald">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </span>
+          <div class="error-card-link-content">
+            <h3>Privacy Policy</h3>
+            <p>Zero tracking, zero uploads. Your drafts never leave your device.</p>
+          </div>
+        </a>
+
+        <a href="/contact" class="error-card-link">
+          <span class="card-icon-box icon-box-blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </span>
+          <div class="error-card-link-content">
+            <h3>Contact Support</h3>
+            <p>Report a broken link or ask questions about our text replacer.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const pathElem = document.getElementById("notFoundPath");
+    if (pathElem && typeof window !== "undefined") {
+      const rawPath = window.location.pathname;
+      pathElem.textContent = `"${rawPath}"`;
+    }
+  </script>
+</Layout>

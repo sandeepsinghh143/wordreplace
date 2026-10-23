@@ -1,0 +1,136 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+---
+
+<Layout
+  title="500: Server Error | Word Replace"
+  description="An unexpected error occurred. Word Replace processes text 100% in your browser, so your text drafts remain safe."
+  noindex={true}
+>
+  <Navbar />
+  <main class="error-page">
+    <Breadcrumbs
+      items={[
+        { href: "/", label: "Word Replace" },
+        { href: "/500", label: "500 Error" },
+      ]}
+    />
+
+    <section class="error-hero hero-500">
+      <div class="error-badge error-badge-500">
+        <span class="badge-dot error-dot-rose"></span>
+        <span>Error 500 &bull; Unexpected Error</span>
+      </div>
+
+      <div class="error-code-glance code-500">500</div>
+
+      <h1>Something broke the replace sequence.</h1>
+      <p class="error-lead">
+        An unexpected error interrupted this page. Rest assured, Word Replace
+        operates 100% client-side in your browser, so your text has not been lost
+        or transmitted anywhere.
+      </p>
+
+      <div class="error-terminal" role="region" aria-label="Error diagnostic details">
+        <div class="terminal-bar">
+          <span class="term-dot red"></span>
+          <span class="term-dot yellow"></span>
+          <span class="term-dot green"></span>
+          <span class="term-title">word-replace-engine.log</span>
+        </div>
+        <div class="terminal-body">
+          <div class="term-row">
+            <span class="term-label">STATUS:</span>
+            <span class="term-tag term-tag-err">500 Internal Snag</span>
+          </div>
+          <div class="term-row">
+            <span class="term-label">DRAFT SAFETY:</span>
+            <span class="term-tag term-tag-safe">100% Local (Safe on Device)</span>
+          </div>
+          <div class="term-row">
+            <span class="term-label">RECOVERY:</span>
+            <span class="term-val">Reload page or restart editor session</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-actions">
+        <a href="/" class="btn-error-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"/>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+          </svg>
+          Reload Word Replace
+        </a>
+        <a href="/contact" class="btn-error-secondary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Report Snag
+        </a>
+      </div>
+    </section>
+
+    <section class="error-quick-section">
+      <h2 class="error-quick-head">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Your data is safe
+      </h2>
+      <div class="error-links-grid">
+        <a href="/" class="error-card-link">
+          <span class="card-icon-box icon-box-emerald">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </span>
+          <div class="error-card-link-content">
+            <h3>Client-Side Safety</h3>
+            <p>Word Replace runs locally. No copy was uploaded or leaked during this error.</p>
+          </div>
+        </a>
+
+        <a href="/" class="error-card-link">
+          <span class="card-icon-box icon-box-cyan">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </span>
+          <div class="error-card-link-content">
+            <h3>Start Clean Session</h3>
+            <p>Open a fresh workspace with empty buffers and default settings.</p>
+          </div>
+        </a>
+
+        <a href="/about" class="error-card-link">
+          <span class="card-icon-box icon-box-purple">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+          </span>
+          <div class="error-card-link-content">
+            <h3>How Word Replace Works</h3>
+            <p>Read about our deterministic architecture and in-browser design.</p>
+          </div>
+        </a>
+
+        <a href="/contact" class="error-card-link">
+          <span class="card-icon-box icon-box-rose">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </span>
+          <div class="error-card-link-content">
+            <h3>Reach Out to Us</h3>
+            <p>Need help or encountering persistent snags? Contact our team directly.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

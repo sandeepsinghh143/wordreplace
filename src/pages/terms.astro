@@ -1,0 +1,125 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+import { CONTACT_EMAIL, SITE_URL } from "../lib/site";
+
+const origin = SITE_URL;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Terms and Conditions for Word Replace",
+  url: `${origin}/terms`,
+  description:
+    "Terms and conditions for using Word Replace, the free in-browser find and replace text tool.",
+  dateModified: "2026-10-23",
+};
+---
+
+<Layout
+  title="Terms and Conditions | Word Replace Text Replacer"
+  description="Terms and conditions for using Word Replace, the free in-browser find and replace text tool. Simple, transparent rules for using our client-side utility."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+  <Navbar />
+  <main class="content-page">
+    <Breadcrumbs
+      items={[
+        { href: "/", label: "Word Replace" },
+        { href: "/terms", label: "Terms and conditions" },
+      ]}
+    />
+    <p class="eyebrow">Terms and conditions</p>
+    <h1>Terms and conditions for Word Replace</h1>
+    <p class="lede">
+      Word Replace is a client-side writing utility designed to find and replace text
+      directly in your web browser. By accessing or using this tool, you agree to
+      these terms and conditions.
+    </p>
+
+    <div class="page-cards">
+      <article class="page-card">
+        <h2>1. Acceptance of terms</h2>
+        <p>
+          By visiting, accessing, or using Word Replace, you agree to comply with
+          and be bound by these terms. If you do not agree with any part of these
+          terms, please discontinue use of the tool.
+        </p>
+      </article>
+
+      <article class="page-card">
+        <h2>2. Free in-browser utility</h2>
+        <p>
+          Word Replace is provided as a free, non-commercial writing aid. There is
+          no mandatory account creation, subscription fee, or paywall. Matching,
+          replacements, and text exports execute directly on your local device.
+        </p>
+      </article>
+
+      <article class="page-card">
+        <h2>3. Your text and ownership</h2>
+        <p>
+          You retain 100% intellectual property ownership of any content you
+          paste into Word Replace. Because our editor runs locally in your
+          browser, we do not store, copy, upload, or claim any rights over your
+          drafts.
+        </p>
+      </article>
+
+      <article class="page-card">
+        <h2>4. User responsibility &amp; review</h2>
+        <p>
+          Word Replace performs literal, deterministic string substitution. You
+          are solely responsible for reviewing and verifying the accuracy of the
+          replaced text before publishing, submitting, or relying on it.
+        </p>
+      </article>
+
+      <article class="page-card">
+        <h2>5. Acceptable use</h2>
+        <p>
+          You agree to use Word Replace only for lawful purposes. You must not
+          attempt to disrupt the website, inject malicious code, overload
+          infrastructure, or interfere with any other user's access to the site.
+        </p>
+      </article>
+
+      <article class="page-card">
+        <h2>6. No warranties</h2>
+        <p>
+          Word Replace is provided on an "as-is" and "as-available" basis without
+          warranties of any kind, whether express or implied. We do not guarantee
+          that the tool will be error-free, uninterrupted, or compatible with all
+          browsers.
+        </p>
+      </article>
+
+      <article class="page-card">
+        <h2>7. Limitation of liability</h2>
+        <p>
+          In no event shall Word Replace, its creators, or affiliates be liable
+          for any direct, indirect, incidental, or consequential damages resulting
+          from the use or inability to use this website, including data loss or
+          unintended text edits.
+        </p>
+      </article>
+
+      <article class="page-card">
+        <h2>8. Changes to these terms</h2>
+        <p>
+          We reserve the right to revise or update these terms at any time. Any
+          modifications will be posted directly on this page with an updated
+          revision date. Last updated October 23, 2026.
+        </p>
+      </article>
+    </div>
+
+    <p class="lede">
+      Have questions about our terms? Return to the
+      <a href="/">Word Replace editor</a>, read our
+      <a href="/privacy">privacy policy</a>, or contact us at
+      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+    </p>
+  </main>
+</Layout>

@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+import { CONTACT_EMAIL, SITE_URL } from "../lib/site";
+
+const origin = SITE_URL;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Privacy policy for Word Replace",
+  url: `${origin}/privacy`,
+  description:
+    "Word Replace processes find and replace text in your browser. We do not upload, store, or sell drafts from this text replacer online.",
+  dateModified: "2026-10-21",
+};
+---
+
+<Layout
+  title="Privacy Policy | Word Replace Online Text Replace"
+  description="Word Replace processes find and replace text in your browser. We do not upload, store, or sell drafts from this text replacer online."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+  <Navbar />
+  <main class="content-page">
+    <Breadcrumbs
+      items={[
+        { href: "/", label: "Word Replace" },
+        { href: "/privacy", label: "Privacy" },
+      ]}
+    />
+    <p class="eyebrow">Privacy policy</p>
+    <h1>Privacy policy for Word Replace</h1>
+    <p class="lede">
+      Word Replace is built so that find-and-replace never needs a server. This
+      page explains what that means in practice.
+    </p>
+    <div class="page-cards">
+      <article class="page-card">
+        <h2>Text processing</h2>
+        <p>
+          Anything you paste is processed in your browser. We do not upload
+          drafts, store them, or send them to a third party. Find and replace,
+          word replace all, copy, and download run on your device.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Local draft</h2>
+        <p>
+          The editor may keep a copy in local storage so a refresh does not wipe
+          the page. That copy never leaves the browser. Press New to remove it.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Accounts and cookies</h2>
+        <p>
+          There are no user accounts. We do not set tracking cookies or run
+          advertising pixels. We do not build a profile from the words you paste.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Contact form</h2>
+        <p>
+          Contact opens your mail app. We only receive the name, email, and
+          message you include. That mail is used to reply and is not sold.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Hosting and logs</h2>
+        <p>
+          The host may keep IP, user agent, and request time for uptime. Those
+          logs do not include editor contents. They may include the page path.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Fonts and assets</h2>
+        <p>
+          The layout loads a web font from Google Fonts. Your browser makes that
+          request. The editor does not send your draft with it.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Children</h2>
+        <p>
+          The site is a general writing utility. We do not knowingly collect
+          personal information from children. Write to {CONTACT_EMAIL} to
+          delete a message sent by a child.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Your choices</h2>
+        <p>
+          Use Word Replace without sending mail. Refuse local storage in the
+          browser. Copy the result and close the tab. There is no account to
+          delete. Last updated October 21, 2026.
+        </p>
+      </article>
+    </div>
+    <p class="lede">
+      Return to the <a href="/">Word Replace editor</a>, read the
+      <a href="/disclaimer">disclaimer</a>, or <a href="/contact">contact us</a>.
+    </p>
+  </main>
+</Layout>

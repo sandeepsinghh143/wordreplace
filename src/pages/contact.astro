@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+import { CONTACT_EMAIL, SITE_URL } from "../lib/site";
+
+const origin = SITE_URL;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Word Replace",
+  url: `${origin}/contact`,
+  description:
+    "Contact the Word Replace team about the free online text replace tool, word replacer online, or find and replace text – free online tool.",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Word Replace",
+    email: CONTACT_EMAIL,
+    url: `${origin}/`,
+  },
+};
+---
+
+<Layout
+  title="Contact Word Replace | Text Replacer Support"
+  description="Contact the Word Replace team about the free online text replace tool, word replacer online, or find and replace text – free online tool."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+  <Navbar />
+  <main class="content-page">
+    <Breadcrumbs
+      items={[
+        { href: "/", label: "Word Replace" },
+        { href: "/contact", label: "Contact" },
+      ]}
+    />
+    <p class="eyebrow">Contact us</p>
+    <h1>Contact Word Replace</h1>
+    <p class="lede">
+      Questions, bugs, or a feature you need for this text replacer online? Send
+      a note. Your draft stays on your device; this form only opens your mail app.
+    </p>
+    <div class="page-cards">
+      <article class="page-card">
+        <h2>How to reach us</h2>
+        <p>
+          Write
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          or use the form. It does not upload your essay. It opens your mail app
+          with the name, email, and message you typed.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>What to include</h2>
+        <ul>
+          <li>Bug in find and replace text or word replace all</li>
+          <li>Layout issue on phone or desktop</li>
+          <li>A feature request for this word replacer online</li>
+          <li>A question about privacy or the disclaimer</li>
+        </ul>
+      </article>
+      <article class="page-card">
+        <h2>What we can do</h2>
+        <p>
+          We can fix editor bugs and point you to
+          <a href="/#howto">how to replace text online</a>. We cannot rewrite
+          your essay or recover text you cleared. See the
+          <a href="/disclaimer">disclaimer</a>.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Before you write</h2>
+        <p>
+          Steps live under <a href="/#howto">how to</a>. Features live under
+          <a href="/#features">features</a>. Privacy lives in the
+          <a href="/privacy">privacy policy</a>. Mail is for a bug those pages
+          do not cover. Return to the
+          <a href="/">text replace tool</a> when you are done.
+        </p>
+      </article>
+    </div>
+    <ContactForm />
+  </main>
+</Layout>

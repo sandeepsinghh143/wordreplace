@@ -1,0 +1,50 @@
+---
+interface Props {
+  href?: string;
+  as?: "h1" | "p" | "div";
+  size?: "lg" | "md" | "sm";
+}
+
+const { href = "/", as = "div", size = "lg" } = Astro.props;
+const heights = { lg: 52, md: 40, sm: 32 } as const;
+const height = heights[size];
+const width = Math.round(height * (780 / 512));
+const alt =
+  as === "h1"
+    ? "Word Replace — find and replace text free online tool"
+    : "Word Replace logo";
+const eager = as === "h1";
+---
+
+{
+  as === "h1" ? (
+    <h1 class="brand-wrap">
+      <span class={`brand brand-${size}`}>
+        <img
+          src="/logo.png"
+          alt={alt}
+          width={width}
+          height={height}
+          class="brand-logo"
+          fetchpriority={eager ? "high" : "low"}
+          decoding="async"
+        />
+        <span class="brand-name">Word Replace</span>
+      </span>
+    </h1>
+  ) : (
+    <a href={href} class="brand-wrap" aria-label="Word Replace home">
+      <span class={`brand brand-${size}`}>
+        <img
+          src="/logo.png"
+          alt={alt}
+          width={width}
+          height={height}
+          class="brand-logo"
+          decoding="async"
+        />
+        <span class="brand-name">Word Replace</span>
+      </span>
+    </a>
+  )
+}

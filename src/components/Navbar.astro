@@ -1,0 +1,59 @@
+---
+import Brand from "./Brand.astro";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const links = [
+  { href: "/", label: "Word Replace" },
+  { href: "/about", label: "About us" },
+  { href: "/contact", label: "Contact us" },
+  { href: "/privacy", label: "Privacy policy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/disclaimer", label: "Disclaimer" },
+];
+---
+
+<header class="navbar">
+  <Brand size="md" />
+  <button
+    type="button"
+    class="nav-toggle"
+    aria-expanded="false"
+    aria-controls="site-nav"
+    data-nav-toggle
+  >
+    <span class="sr-only">Menu</span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="site-nav" class="nav-links" aria-label="Site">
+    {
+      links.map((link) => {
+        const active = path === link.href;
+        return (
+          <a
+            href={link.href}
+            class={active ? "nav-link active" : "nav-link"}
+            aria-current={active ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        );
+      })
+    }
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const nav = document.getElementById("site-nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const open = !nav.classList.contains("open");
+      nav.classList.toggle("open", open);
+      toggle.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("nav-open", open);
+    });
+  }
+</script>

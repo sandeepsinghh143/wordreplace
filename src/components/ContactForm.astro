@@ -1,0 +1,61 @@
+---
+---
+
+<form class="contact-form" data-contact novalidate>
+  <label class="field">
+    <span>Name</span>
+    <input type="text" name="name" autocomplete="name" />
+  </label>
+  <label class="field">
+    <span>Email</span>
+    <input type="email" name="email" autocomplete="email" />
+  </label>
+  <label class="field">
+    <span>Message</span>
+    <textarea name="message" rows="6"></textarea>
+  </label>
+  <p class="form-note error" data-error hidden></p>
+  <p class="form-note ok" data-ok hidden>
+    Your mail app should open with the message ready to send.
+  </p>
+  <button class="btn-primary" type="submit">Send message</button>
+</form>
+
+<script>
+  const form = document.querySelector("[data-contact]");
+  const errorEl = document.querySelector("[data-error]");
+  const okEl = document.querySelector("[data-ok]");
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement)) return;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+
+    if (errorEl instanceof HTMLElement) errorEl.hidden = true;
+    if (okEl instanceof HTMLElement) okEl.hidden = true;
+
+    function fail(text) {
+      if (errorEl instanceof HTMLElement) {
+        errorEl.textContent = text;
+        errorEl.hidden = false;
+      }
+    }
+
+    if (!name || !email || !message) {
+      fail("Please fill in every field.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      fail("Enter a valid email address.");
+      return;
+    }
+
+    const subject = encodeURIComponent(`Word Replace — note from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
+    window.location.href = `mailto:hello@wordreplace.com?subject=${subject}&body=${body}`;
+    if (okEl instanceof HTMLElement) okEl.hidden = false;
+  });
+</script>

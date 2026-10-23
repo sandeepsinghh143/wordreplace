@@ -1,0 +1,57 @@
+---
+import Brand from "./Brand.astro";
+---
+
+<header class="tool-header">
+  <Brand as="h1" size="lg" />
+  <div class="header-actions">
+    <button type="button" class="btn-fav" data-fav>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M12 20s-7-4.4-7-9.2A4.2 4.2 0 0 1 12 7.4a4.2 4.2 0 0 1 7 3.4C19 15.6 12 20 12 20Z"></path>
+      </svg>
+      Add to Fav
+    </button>
+    <button type="button" class="btn-new" data-new>New</button>
+    <button type="button" class="btn-share" data-share>Save & Share</button>
+  </div>
+  <p class="header-hint" data-hint hidden></p>
+</header>
+
+<script>
+  const fav = document.querySelector("[data-fav]");
+  const share = document.querySelector("[data-share]");
+  const neu = document.querySelector("[data-new]");
+  const hint = document.querySelector("[data-hint]");
+
+  function showHint(text) {
+    if (!(hint instanceof HTMLElement)) return;
+    hint.textContent = text;
+    hint.hidden = false;
+    window.setTimeout(() => {
+      hint.hidden = true;
+    }, 2000);
+  }
+
+  fav?.addEventListener("click", () => {
+    const mac = /Mac|iPhone|iPad/i.test(navigator.userAgent);
+    showHint(mac ? "Press Cmd+D to bookmark" : "Press Ctrl+D to bookmark");
+  });
+
+  share?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      showHint("Link copied");
+    } catch {
+      showHint("Copy the URL from the address bar");
+    }
+  });
+
+  neu?.addEventListener("click", () => {
+    try {
+      localStorage.removeItem("text-replacer-draft");
+    } catch {
+      /* ignore */
+    }
+    window.dispatchEvent(new Event("word-replace-new"));
+  });
+</script>

@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+import { SITE_URL } from "../lib/site";
+
+const origin = SITE_URL;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Disclaimer for Word Replace",
+  url: `${origin}/disclaimer`,
+  description:
+    "Word Replace is a find and replace text – free online tool provided as-is. Review replaced text before you publish.",
+};
+---
+
+<Layout
+  title="Disclaimer | Word Replace Text Replacer"
+  description="Word Replace is a find and replace text – free online tool provided as-is. Review replaced text before you publish."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+  <Navbar />
+  <main class="content-page">
+    <Breadcrumbs
+      items={[
+        { href: "/", label: "Word Replace" },
+        { href: "/disclaimer", label: "Disclaimer" },
+      ]}
+    />
+    <p class="eyebrow">Disclaimer</p>
+    <h1>Disclaimer for Word Replace</h1>
+    <p class="lede">
+      Word Replace is a local find-and-replace tool. It does not check meaning,
+      tone, or legal accuracy. You remain responsible for the text you copy out
+      of it.
+    </p>
+    <div class="page-cards">
+      <article class="page-card">
+        <h2>No warranty</h2>
+        <p>
+          The site is provided as-is. We do not guarantee that replacements will
+          be complete or suitable. Keep your own backup of important drafts.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Review before you publish</h2>
+        <p>
+          Always read the result. Word replace all swaps the string you typed,
+          including inside longer words if that string appears there. Auto mode
+          helps you watch hits. It cannot catch every accident.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Not an AI text replacer</h2>
+        <p>
+          Word Replace is a text replacer, not an AI word replacer. It will not
+          paraphrase, fact-check, or improve style. Read the blue result box
+          before you use it.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Not professional advice</h2>
+        <p>
+          This tool is not legal, medical, academic, or editorial advice. A
+          successful replace does not mean the new wording is correct for class
+          or a public page.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>No file or URL load</h2>
+        <p>
+          You paste text in. If a paste fails, the limit is your browser, not a
+          Word Replace word cap. See the
+          <a href="/privacy">privacy policy</a>.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Liability and links</h2>
+        <p>
+          We are not liable for missed replacements, deletions, or downtime.
+          Outbound links are marked nofollow where they leave this site. Last
+          updated October 21, 2026.
+        </p>
+      </article>
+    </div>
+    <p class="lede">
+      Return to the <a href="/">Word Replace editor</a>, read
+      <a href="/about">about Word Replace</a>, or
+      <a href="/contact">contact us</a>.
+    </p>
+  </main>
+</Layout>

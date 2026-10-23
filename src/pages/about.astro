@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+import { SITE_URL } from "../lib/site";
+
+const origin = SITE_URL;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Word Replace",
+  url: `${origin}/about`,
+  description:
+    "About Word Replace, the private in-browser text replace tool. Find and replace text, replace words in text, and change words in an essay without uploading a draft.",
+  isPartOf: { "@type": "WebSite", name: "Word Replace", url: `${origin}/` },
+  mainEntity: {
+    "@type": "Organization",
+    name: "Word Replace",
+    url: `${origin}/`,
+  },
+};
+---
+
+<Layout
+  title="About Word Replace | Online Text Replace and Word Replacer"
+  description="About Word Replace, the private in-browser text replace tool. Find and replace text, replace words in text, and change words in an essay without uploading a draft."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+  <Navbar />
+  <main class="content-page">
+    <Breadcrumbs
+      items={[
+        { href: "/", label: "Word Replace" },
+        { href: "/about", label: "About" },
+      ]}
+    />
+    <p class="eyebrow">About us</p>
+    <h1>About Word Replace, a private text replacer online</h1>
+    <p class="lede">
+      Word Replace is a small studio for exact edits. Paste a draft, mark the
+      phrase to change, and copy a clean result without sending the text anywhere.
+    </p>
+    <div class="page-cards">
+      <article class="page-card">
+        <h2>What we built</h2>
+        <p>
+          Most find-and-replace tools live in a heavy editor or upload your copy.
+          Word Replace does neither. Matching, replacing, copying, and downloading
+          happen in your browser. It is a text replace online workspace with no
+          word limit.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Why it exists</h2>
+        <p>
+          A student needs to change words in an essay. An editor needs word
+          replace all after a style change. Opening Word for that is slow.
+          Uploading unpublished copy is worse. This page does one exact job.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Who it is for</h2>
+        <ul>
+          <li>Students who need to change words in an essay</li>
+          <li>Editors who need a word replacer online</li>
+          <li>Teams swapping a brand name in replies</li>
+          <li>Anyone who wants text replace with no signup</li>
+        </ul>
+      </article>
+      <article class="page-card">
+        <h2>How it works</h2>
+        <p>
+          Matching is exact. The tool looks for the string you type and swaps it.
+          It is a text replacer, not an AI text replacer. No word cap. Copy or
+          download the result. Start in the
+          <a href="/#workspace">Word Replace editor</a>.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>What we leave out</h2>
+        <p>
+          No accounts, no analytics on your text, no cloud storage, no file or
+          URL load, no grammar check. Those limits keep the draft on your device.
+        </p>
+      </article>
+      <article class="page-card">
+        <h2>Team and contact</h2>
+        <p>
+          If the editor is wrong, write through
+          <a href="/contact">contact</a>. Read the
+          <a href="/privacy">privacy policy</a> and
+          <a href="/disclaimer">disclaimer</a>, or go to
+          <a href="/">Word Replace</a>.
+        </p>
+      </article>
+    </div>
+  </main>
+</Layout>
